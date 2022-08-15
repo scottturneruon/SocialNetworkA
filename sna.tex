@@ -17,8 +17,6 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{caption}
-% \usepackage{fullpage}
-\usepackage{lipsum} % provides dummy text for testing
 \usepackage[toc,title,titletoc,header]{appendix}
 \usepackage{minitoc}
 \usepackage{color}
@@ -202,26 +200,21 @@ delim_0 "\\nobreak\\dotfill"
 	\listoftheorems[ignoreall,show={definition}]
 \end{multicols}
 
-	% \printglossaries
-	% \printglossary[type=\acronymtype]
-	\printglossary
-	% \printglossary[title=List of terms, toctitle=List of terms]
+\input{chapter/Introduction/introduction}
 
-	% bib2gls
-	% \printunsrtglossaries % print all types
-	% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listgroup]
-	% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listhypergroup] % doesn't work
-	% \printunsrtglossary[type={symbols},title=List of Symbols,style=listgroup]
-	% \printunsrtglossary % main entry
-
-%%%%%%%%%%%%%%%Content%%%%%%%%%%%%%%%
-% \mainmatter % separat the number of toc and mainmatter
+\part{Useful other tools}
+\input{./chapter/ChpGephi/gephi.tex}
 
 \part{TAGS}
 \input{./chapter/ChpTAGS/TAGS1.tex}
 
 \part{Socioviz}
+\input{chapter/Chpsocioviz1/sociovizintro}
 \input{./chapter/Chpsocioviz1/socioviz1.tex}
+
+\part{NodeXL}
+\input{chapter/ChpNodeXL/NodeXL}
+
 
 
 
