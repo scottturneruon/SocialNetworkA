@@ -1,0 +1,49 @@
+\chapter{Python}
+\section{Sentiment analysis}
+The file socmedhe20.csv contains the tweets and the code is a  a modified example taken from Wintjen M (2020) "Practical Analysis Using Jupyter Notebook" pp 264
+
+\begin{verbatim}
+! pip install nltk
+import nltk
+import pandas as pd
+import numpy as np
+%matplotlib inlinefrom nltk.sentiment.vader import SentimentIntensityAnalyzer
+anlysr=SentimentIntensityAnalyzer()
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+anlysr=SentimentIntensityAnalyzer()
+the_data=pd.read_csv('socmedhe20.csv')
+the_data.head()
+score_compound=[]
+score_positive=[]
+score_negative=[]
+score_neutral=[]
+i=0
+while (i<len(the_data)):
+    my_anlysr=anlysr.polarity_scores(the_data.iloc[i]['text'])
+    score_compound.append(my_anlysr['compound'])
+    score_positive.append(my_anlysr['pos'])
+    score_negative.append(my_anlysr['neg'])
+    score_neutral.append(my_anlysr['neu'])
+    i=i+1
+the_data['Compound score']=score_compound
+the_data['Positive score']=score_positive
+the_data['Negative score']=score_negative
+the_data['Neutral score']=score_neutral
+loop=0
+pred_sentiment=[]
+while (loop<len(the_data)):
+    if ((the_data.iloc[loop]['Compound score'])>0.3):
+        pred_sentiment.append('Positive Words')
+    elif ((the_data.iloc[loop]['Compound score']>=0) & (the_data.iloc[loop]['Compound score']<0.3)):
+        pred_sentiment.append('Neutral Words')
+    else:
+        pred_sentiment.append('Negative Words')
+    loop=loop+1
+the_data['Prediction']=pred_sentiment
+the_data.groupby('Prediction').size().plot(kind='barh')    
+\end{verbatim}
+ 
+
+
+

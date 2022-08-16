@@ -1,8 +1,5 @@
-% !TEX root = ./notes_template.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt,twoside]{book}
+
+\documentclass[11pt,twoside, book]{book}
 \usepackage[mono=false]{libertine} % new linux font, ignore mono
 
 \usepackage{luatex85}
@@ -22,8 +19,12 @@
 \usepackage{color}
 \usepackage{multicol} % two-col ToC
 \usepackage{bm}
-\usepackage{imakeidx} % before hyperref
-\usepackage{hyperref}
+\usepackage{fixltx2e,fix-cm}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{makeidx}
+
+
 % link colors settings
 \hypersetup{
     colorlinks=true,
@@ -139,7 +140,6 @@ delim_0 "\\nobreak\\dotfill"
 % https://tex.stackexchange.com/questions/454672/biblatex-journal-name-non-italic
 \DeclareFieldFormat{journaltitle}{#1\isdot}
 \DeclareFieldFormat{booktitle}{#1\isdot}
-% https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
 \renewbibmacro{in:}{}
 % add video field: https://tex.stackexchange.com/questions/111846/biblatex-2-custom-fields-only-one-is-working
 \DeclareSourcemap{
@@ -204,6 +204,7 @@ delim_0 "\\nobreak\\dotfill"
 
 \part{Useful other tools}
 \input{./chapter/ChpGephi/gephi.tex}
+\input{./chapter/ChpGephi/python.tex}
 
 \part{TAGS}
 \input{./chapter/ChpTAGS/TAGS1.tex}
